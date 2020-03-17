@@ -36,7 +36,9 @@ To run tests, simply run `sh run_tests.sh`. This will wipe test database, recrea
 
 
 ## Live Demo
-The application is deployed at: [https://trivia-api-jeff.herokuapp.com/](https://trivia-api-jeff.herokuapp.com/). You can generate an auth token by hitting [https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results](https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results) in your browser. You will need to include this as bearer token to use the API locally or live.
+The application is deployed at: [https://trivia-api-jeff.herokuapp.com/](https://trivia-api-jeff.herokuapp.com/).
+
+You can generate an auth token by hitting [https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results](https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results) in your browser. You will need to include this as bearer token to use the API locally or live.
 
 The deployed application has two roles: **Admin** and **User**
 
@@ -66,8 +68,12 @@ The following are endpoints for the service:
 ## Example Requests and Responses
 
 #### GET /questions
-* Local `curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://127.0.0.1:5000/questions`
-* Deployed `curl -H "Authorization: Bearer <ACCESS_TOKEN>" https://trivia-api-jeff.herokuapp.com/questions`
+Local:
+`curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://127.0.0.1:5000/questions`
+
+Deployed:
+`curl -H "Authorization: Bearer <ACCESS_TOKEN>" https://trivia-api-jeff.herokuapp.com/questions`
+
 ```
 {
     "questions": [
@@ -92,8 +98,12 @@ The following are endpoints for the service:
 ```
 
 #### GET /categories
-* Local `curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://127.0.0.1:5000/categories`
-* Deployed `curl -H "Authorization: Bearer <ACCESS_TOKEN>" https://trivia-api-jeff.herokuapp.com/categories`
+Local:
+`curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://127.0.0.1:5000/categories`
+
+Deployed:
+`curl -H "Authorization: Bearer <ACCESS_TOKEN>" https://trivia-api-jeff.herokuapp.com/categories`
+
 ```
 {
     "categories": {
@@ -108,6 +118,23 @@ The following are endpoints for the service:
 ```
 
 #### POST /questions
+Local:
+```
+curl --header "Content-Type: application/json" \
+  --request POST \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  --data '{"question": "What is the meaning of life?","answer": "42","difficulty": 2,"category": 4}' \
+  http://127.0.0.1:5000/questions
+```
+
+Deployed:
+```
+curl --header "Content-Type: application/json" \
+  --request POST \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  --data '{"question": "What is the meaning of life?","answer": "42","difficulty": 2,"category": 4}' \
+  https://trivia-api-jeff.herokuapp.com/questions
+```
 
 ```
 {
@@ -117,6 +144,23 @@ The following are endpoints for the service:
 ```
 
 #### POST /questions (with search)
+Local:
+```
+curl --header "Content-Type: application/json" \
+  --request POST \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  --data '{"searchTerm": "<search_string>"}' \
+  http://127.0.0.1:5000/questions
+```
+
+Deployed:
+```
+curl --header "Content-Type: application/json" \
+  --request POST \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  --data '{"searchTerm": "<search_string>"}' \
+  https://trivia-api-jeff.herokuapp.com/questions
+```
 
 ```
 {
@@ -135,6 +179,23 @@ The following are endpoints for the service:
 ```
 
 #### POST /categories
+Local:
+```
+curl --header "Content-Type: application/json" \
+  --request POST \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  --data '{"type": "<category_name>"}' \
+  http://127.0.0.1:5000/categories
+```
+
+Deployed:
+```
+curl --header "Content-Type: application/json" \
+  --request POST \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  --data '{"type": "<category_name>"}' \
+  https://trivia-api-jeff.herokuapp.com/categories
+```
 
 ```
 {
@@ -144,6 +205,19 @@ The following are endpoints for the service:
 ```
 
 #### DELETE /questions/<question_id>
+Local:
+```
+curl --request DELETE \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  http://127.0.0.1:5000/questions/<question_id>
+```
+
+Deployed:
+```
+curl --request DELETE \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  https://trivia-api-jeff.herokuapp.com/questions/<question_id>
+```
 
 ```
 {
@@ -152,6 +226,23 @@ The following are endpoints for the service:
 ```
 
 #### PATCH /questions/<question_id>
+Local:
+```
+curl --header "Content-Type: application/json" \
+  --request PATCH \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  --data '{"question": "What is the meaning of life?","answer": "42","difficulty": 2,"category": 4}' \
+  http://127.0.0.1:5000/questions/<question_id>
+```
+
+Deployed:
+```
+curl --header "Content-Type: application/json" \
+  --request PATCH \
+  -H "Authorization: Bearer <ACCESS_TOKEN>" \
+  --data '{"question": "What is the meaning of life?","answer": "42","difficulty": 2,"category": 4}' \
+  https://trivia-api-jeff.herokuapp.com/questions/<question_id>
+```
 
 ```
 {
