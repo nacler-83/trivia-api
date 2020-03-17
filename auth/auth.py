@@ -14,10 +14,13 @@ from urllib.request import urlopen
 # API Config
 # ---------------------------------------------------------------------------#
 
-
-AUTH0_DOMAIN = 'nacler.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'trivia-api'
+database_path = os.environ('AUTH0_DOMAIN')
+database_path = os.environ['ALGORITHMS']
+database_path = os.environ('API_AUDIENCE')
+# uncomment the below for local development
+# AUTH0_DOMAIN = 'nacler.auth0.com'
+# ALGORITHMS = ['RS256']
+# API_AUDIENCE = 'trivia-api'
 
 
 # ---------------------------------------------------------------------------#

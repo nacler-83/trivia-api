@@ -15,8 +15,10 @@ from flask_migrate import Migrate
 # ---------------------------------------------------------------------------#
 
 
-database_name = "trivia"
-database_path = "postgresql://{}/{}".format('localhost:5432', database_name)
+database_path = os.environ['DATABASE_URL']
+# uncomment the below name and patch for local development
+# database_name = "trivia"
+# database_path = "postgresql://{}/{}". format('localhost:5432', database_name)
 
 db = SQLAlchemy()
 
