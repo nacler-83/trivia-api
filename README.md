@@ -68,12 +68,13 @@ The following are endpoints for the service:
 ## Example Requests and Responses
 
 #### GET /questions
-Local:
+Local Request:
 `curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://127.0.0.1:5000/questions`
 
-Deployed:
+Deployed Request:
 `curl -H "Authorization: Bearer <ACCESS_TOKEN>" https://trivia-api-jeff.herokuapp.com/questions`
 
+Example Response:
 ```
 {
     "questions": [
@@ -98,12 +99,13 @@ Deployed:
 ```
 
 #### GET /categories
-Local:
+Local Request:
 `curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://127.0.0.1:5000/categories`
 
-Deployed:
+Deployed Request:
 `curl -H "Authorization: Bearer <ACCESS_TOKEN>" https://trivia-api-jeff.herokuapp.com/categories`
 
+Example Response:
 ```
 {
     "categories": {
@@ -118,7 +120,7 @@ Deployed:
 ```
 
 #### POST /questions
-Local:
+Local Request:
 ```
 curl --header "Content-Type: application/json" \
   --request POST \
@@ -127,7 +129,7 @@ curl --header "Content-Type: application/json" \
   http://127.0.0.1:5000/questions
 ```
 
-Deployed:
+Deployed Request:
 ```
 curl --header "Content-Type: application/json" \
   --request POST \
@@ -136,6 +138,7 @@ curl --header "Content-Type: application/json" \
   https://trivia-api-jeff.herokuapp.com/questions
 ```
 
+Example Response:
 ```
 {
     "new_question": 3,
@@ -144,7 +147,7 @@ curl --header "Content-Type: application/json" \
 ```
 
 #### POST /questions (with search)
-Local:
+Local Request:
 ```
 curl --header "Content-Type: application/json" \
   --request POST \
@@ -153,7 +156,7 @@ curl --header "Content-Type: application/json" \
   http://127.0.0.1:5000/questions
 ```
 
-Deployed:
+Deployed Request:
 ```
 curl --header "Content-Type: application/json" \
   --request POST \
@@ -162,6 +165,7 @@ curl --header "Content-Type: application/json" \
   https://trivia-api-jeff.herokuapp.com/questions
 ```
 
+Example Response:
 ```
 {
     "questions": [
@@ -179,7 +183,7 @@ curl --header "Content-Type: application/json" \
 ```
 
 #### POST /categories
-Local:
+Local Request:
 ```
 curl --header "Content-Type: application/json" \
   --request POST \
@@ -188,7 +192,7 @@ curl --header "Content-Type: application/json" \
   http://127.0.0.1:5000/categories
 ```
 
-Deployed:
+Deployed Request:
 ```
 curl --header "Content-Type: application/json" \
   --request POST \
@@ -197,6 +201,7 @@ curl --header "Content-Type: application/json" \
   https://trivia-api-jeff.herokuapp.com/categories
 ```
 
+Example Response:
 ```
 {
     "new_category": 6,
@@ -205,20 +210,21 @@ curl --header "Content-Type: application/json" \
 ```
 
 #### DELETE /questions/<question_id>
-Local:
+Local Request:
 ```
 curl --request DELETE \
   -H "Authorization: Bearer <ACCESS_TOKEN>" \
   http://127.0.0.1:5000/questions/<question_id>
 ```
 
-Deployed:
+Deployed Request:
 ```
 curl --request DELETE \
   -H "Authorization: Bearer <ACCESS_TOKEN>" \
   https://trivia-api-jeff.herokuapp.com/questions/<question_id>
 ```
 
+Example Response:
 ```
 {
     "success": true
@@ -226,7 +232,7 @@ curl --request DELETE \
 ```
 
 #### PATCH /questions/<question_id>
-Local:
+Local Request:
 ```
 curl --header "Content-Type: application/json" \
   --request PATCH \
@@ -235,7 +241,7 @@ curl --header "Content-Type: application/json" \
   http://127.0.0.1:5000/questions/<question_id>
 ```
 
-Deployed:
+Deployed Request:
 ```
 curl --header "Content-Type: application/json" \
   --request PATCH \
@@ -244,6 +250,7 @@ curl --header "Content-Type: application/json" \
   https://trivia-api-jeff.herokuapp.com/questions/<question_id>
 ```
 
+Example Response:
 ```
 {
     "question": 3,
