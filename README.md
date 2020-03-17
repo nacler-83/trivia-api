@@ -1,4 +1,4 @@
-# Trivia API with Authentication via Auth0
+# Capstone: Trivia API with Authentication via Auth0
 
 
 ## General Introduction
@@ -66,10 +66,8 @@ The following are endpoints for the service:
 ## Example Requests and Responses
 
 #### GET /questions
-Local:
-* `curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://127.0.0.1:5000/questions`
-Deployed:
-* `curl -H "Authorization: Bearer <ACCESS_TOKEN>" https://trivia-api-jeff.herokuapp.com/questions`
+* Local `curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://127.0.0.1:5000/questions`
+* Deployed `curl -H "Authorization: Bearer <ACCESS_TOKEN>" https://trivia-api-jeff.herokuapp.com/questions`
 ```
 {
     "questions": [
@@ -94,10 +92,8 @@ Deployed:
 ```
 
 #### GET /categories
-Local:
-* `curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://127.0.0.1:5000/categories`
-Deployed:
-* `curl -H "Authorization: Bearer <ACCESS_TOKEN>" https://trivia-api-jeff.herokuapp.com/categories`
+* Local `curl -H "Authorization: Bearer <ACCESS_TOKEN>" http://127.0.0.1:5000/categories`
+* Deployed `curl -H "Authorization: Bearer <ACCESS_TOKEN>" https://trivia-api-jeff.herokuapp.com/categories`
 ```
 {
     "categories": {
