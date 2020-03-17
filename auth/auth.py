@@ -15,13 +15,15 @@ from urllib.request import urlopen
 # API Config
 # ---------------------------------------------------------------------------#
 
-AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
-ALGORITHMS = os.environ['ALGORITHMS']
-API_AUDIENCE = os.environ['API_AUDIENCE']
+# uncomment the below for deployment to heroku
+# AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
+# ALGORITHMS = os.environ['ALGORITHMS']
+# API_AUDIENCE = os.environ['API_AUDIENCE']
+
 # uncomment the below for local development
-# AUTH0_DOMAIN = 'nacler.auth0.com'
-# ALGORITHMS = ['RS256']
-# API_AUDIENCE = 'trivia-api'
+AUTH0_DOMAIN = 'nacler.auth0.com'
+ALGORITHMS = ['RS256']
+API_AUDIENCE = 'trivia-api'
 
 
 # ---------------------------------------------------------------------------#

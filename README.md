@@ -2,10 +2,10 @@
 
 
 ## General Introduction
-A simple API in python flask with authentication handled via Auth0. Returns data in JSON format. Leverages flask-migrate for database migrations.
+Capstone project for Udacity Full Stack Developer Nanodegree. Project is an API using Flask, written in python and leverages Auth0 for endpoint authentication. API returns data in JSON format. Leverages flask-migrate for database migrations.
 
 
-## Running Locally
+## Running Locally and Installing Dependencies
 To run the app locally, follow these steps:
 * clone the repo
 * `cd app`
@@ -15,7 +15,7 @@ To run the app locally, follow these steps:
 * in models.py, define a `database_name` and `database_path`
 * setup an Auth0 application, API and roles. More details in Auth0 Configuration section below.
 * in auth.py, define a `AUTH0_DOMAIN` `ALGORITHMS` and `API_AUDIENCE`
-* run the application with `sh launch.sh`
+* run the application with `sh launch.sh`. You might need to `chmod +x launch.sh` in order to run it.
 
 
 ## Auth0 Configuration
@@ -28,17 +28,31 @@ To run the app locally, follow these steps:
   * patch:questions
   * post:categories
 * Setup roles per your desired permission sets
-* You will define a `AUTH0_DOMAIN` `ALGORITHMS` and `API_AUDIENCE` in auth.py per running locally instruction
+* You will define a `AUTH0_DOMAIN` `ALGORITHMS` and `API_AUDIENCE` based on the above configurations in auth.py as part of running locally.
 
 
 ## Tests
-To run tests, simply run `sh run_tests.sh`. This will wipe test database, recreate and run tests.
+To run tests, simply run `sh run_tests.sh`. This will wipe test database, recreate database and run tests. Tests are done using unittest.
+
+You might need to `chmod +x run_tests.sh` in order to run it.
+
+
+## Deployment
+App can be deployed easily on Heroku and using gunicorn. Instructions below assume you have installed Heroku CLI and have an account.
+* create heroku app `heroku create name_of_your_app`
+* add remote with `git remote add heroku heroku_git_url`
+* setup postgres with `heroku addons:create heroku-postgresql:hobby-dev --app name_of_your_application`
+* get your `database_path` with `heroku config --app name_of_your_application`
+* add the patch and your Auth0 information to `setup.py`
+* deploy with `git push heroku master`
+* make sure your environment variables from `setup.py` are defined in the project environment variables.
+* enjoy!
 
 
 ## Live Demo
 The application is deployed at: [https://trivia-api-jeff.herokuapp.com/](https://trivia-api-jeff.herokuapp.com/).
 
-You can generate an auth token by hitting [https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results](https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results) in your browser. You will need to include this as bearer token to use the API locally or live.
+You can generate an auth token by hitting [https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results](https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results) in your browser. You will need to include this as bearer token to use the API locally or live. See section *Example Requests and Responses* for request examples.
 
 The deployed application has two roles: **Admin** and **User**
 

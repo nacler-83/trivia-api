@@ -14,11 +14,12 @@ from flask_migrate import Migrate
 # Config
 # ---------------------------------------------------------------------------#
 
+# uncomment the below for deployment to heroku
+# database_path = os.environ['DATABASE_URL']
 
-database_path = os.environ['DATABASE_URL']
 # uncomment the below name and patch for local development
-# database_name = "trivia"
-# database_path = "postgresql://{}/{}". format('localhost:5432', database_name)
+database_name = "trivia"
+database_path = "postgresql://{}/{}". format('localhost:5432', database_name)
 
 db = SQLAlchemy()
 
