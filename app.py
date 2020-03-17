@@ -48,7 +48,7 @@ def convert_categories(categories):
 #  --------------------------------------------------------------------------#
 
 
-def create_app():
+def create_app(test_config=None):
     # create and configure the app
     app = Flask(__name__)
     setup_db(app)
@@ -82,6 +82,32 @@ def create_app():
             result = {
                 'success': True,
                 'categories': categories_dictionary
+            }
+
+            return jsonify(result), 200
+
+        except AuthError:
+            abort(401)
+
+        except(Exception):
+            abort(422)
+
+    #  ROUTE: post a new question or search questions
+    #  ----------------------------------------------------------------
+    @app.route('/categories', methods=['POST'])
+    @requires_auth('post:categories')
+    def create_category(payload):
+
+        try:
+            body = request.get_json()
+            new_type = body.get('type', None)
+
+            new_category = Category(type=new_type)
+            new_category.insert()
+
+            result = {
+                'success': True,
+                'new_category': new_category.id
             }
 
             return jsonify(result), 200
