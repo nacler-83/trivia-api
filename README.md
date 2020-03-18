@@ -16,6 +16,7 @@ To run the app locally, follow these steps:
 * setup an Auth0 application, API and roles. More details in Auth0 Configuration section below.
 * in auth.py, define a `AUTH0_DOMAIN` `ALGORITHMS` and `API_AUDIENCE`
 * run the application with `sh launch.sh`. You might need to `chmod +x launch.sh` in order to run it.
+* you can run `sh bootstrap.sh` to load your local database with data. Edit with your table name.
 
 
 ## Auth0 Configuration
