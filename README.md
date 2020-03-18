@@ -32,7 +32,9 @@ To run the app locally, follow these steps:
 
 
 ## Tests
-To run tests, simply run `sh run_tests.sh`. This will wipe test database, recreate database and run tests. Tests are done using unittest.
+Automated tests require an auth token. In `test_flaskr.py` provide an auth token and set `admin` variable to `True` or `False` based on whether token user is admin role.
+
+To run tests, run `sh run_tests.sh`. This will wipe test database, recreate database and run tests. Tests are done using unittest.
 
 You might need to `chmod +x run_tests.sh` in order to run it.
 
@@ -52,9 +54,17 @@ App can be deployed easily on Heroku and using gunicorn. Instructions below assu
 ## Live Demo
 The application is deployed at: [https://trivia-api-jeff.herokuapp.com/](https://trivia-api-jeff.herokuapp.com/).
 
-You can generate an auth token by hitting [https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results](https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results) in your browser. You will need to include this as bearer token to use the API locally or live. See section *Example Requests and Responses* for request examples.
+To generate an auth token (jwt), go to [https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results](https://nacler.auth0.com/authorize?audience=trivia-api&response_type=token&client_id=bnPnm6NHbJGg8mZlKmg64yk3wW3d0HW1&redirect_uri=http://localhost:8080/login-results) in your browser and enter the credentials below. You will need to include this bearer token in your requests. See section *Example Requests and Responses* for request examples.
 
-The deployed application has two roles: **Admin** and **User**
+*Admin Role Credentials*
+user: `admin@trivia-api.com`
+pass: `P@ssword123`
+
+*User Role Credentials*
+user: `user@trivia-api.com`
+pass: `P@ssword123`
+
+The deployed application has the follwing roles and permissions: **Admin** and **User**
 
 Admins can:
 * get:questions
@@ -67,6 +77,10 @@ Admins can:
 Users can:
 * get:questions
 * get:categories
+
+
+## Postman
+Included in a postman collection you can use to hit the endpoints. Adjust the host variable in the mail `Trivia API` folder. Set your Admin and User bearer token in the `Admin` and `User` folders. Hitting endpoints that require admin permissions with a user token should return a 403.
 
 
 ## Endpoints

@@ -1,0 +1,438 @@
+{
+	"info": {
+		"_postman_id": "889389ce-f621-4962-8a2e-1b678cf3bba5",
+		"name": "Trivia API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "GET Questions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/questions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/categories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Categories",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": \"Entertainment\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/categories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Question",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"What is the meaning of life?\",\n    \"answer\": \"42\",\n    \"difficulty\": 2,\n    \"category\": 4\n}"
+						},
+						"url": {
+							"raw": "{{host}}/questions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Question",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/questions/100",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SEARCH Questions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"searchTerm\": \"life\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/questions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH Question",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"Could this possibly work?\",\n    \"answer\": \"Maybe\",\n    \"difficulty\": 3,\n    \"category\": 3\n}"
+						},
+						"url": {
+							"raw": "{{host}}/questions/30",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions",
+								"30"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlF6WXpSVUkxUWtFeU9FWkZPREZHT1VZeVJFVTBPVFZGTkRaQk9UQkNSRVkyUVVVd01EWTVNUSJ9.eyJpc3MiOiJodHRwczovL25hY2xlci5hdXRoMC5jb20vIiwic3ViIjoiZ29vZ2xlLW9hdXRoMnwxMDE5NDM3MTYyNDg0NzU0MzgxMjMiLCJhdWQiOlsidHJpdmlhLWFwaSIsImh0dHBzOi8vbmFjbGVyLmF1dGgwLmNvbS91c2VyaW5mbyJdLCJpYXQiOjE1ODQ0NzA2ODMsImV4cCI6MTU4NDQ3Nzg4MywiYXpwIjoiYm5Qbm02TkhiSkdnOG1abEttZzY0eWszd1czZDBIVzEiLCJzY29wZSI6Im9wZW5pZCBwcm9maWxlIGVtYWlsIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOnF1ZXN0aW9ucyIsImdldDpjYXRlZ29yaWVzIiwiZ2V0OnF1ZXN0aW9ucyIsInBhdGNoOnF1ZXN0aW9ucyIsInBvc3Q6Y2F0ZWdvcmllcyIsInBvc3Q6cXVlc3Rpb25zIl19.hq1NcQVw4_sdtr5Zk8ZlEhx0DAULtUsg519lmatgnxRu2oTWfAO-xDt-QVM-iMs2bztXyunAnJ0X-W1fkWr5nDwbdqE4nbvBX3OlBEzpEAfGIHBALYnhGvWqgfrJru9z3SYGOtyeAcz0_20eIoLjkRJvKlUvPDOkJ-1vxmeSc8K-X8cidECJM1TknUl6sKk1SbMEy-VFK16peLHxquNq9xZHMdSXByNV6GOFSOvp9ketqFD1a-0GDYlXjCZjtMapB6H5GsQUGox4EHhTixCHoHP_wAomXINfLcTNY3D5vRCm5CkH4x9DV9ncfBDMubC4BTHgjk5Iy-qALm6nPq4zXg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7b49f65d-87cb-47cd-b2ac-3b15bdcb6f60",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f4ef8467-7915-4bf2-bc53-9bbf210f0263",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "GET Questions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/questions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/categories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Categories",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"type\": \"Entertainment\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/categories",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Question",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"What is the meaning of life?\",\n    \"answer\": \"42\",\n    \"difficulty\": 2,\n    \"category\": 4\n}"
+						},
+						"url": {
+							"raw": "{{host}}/questions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DELETE Question",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/questions/100",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions",
+								"100"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SEARCH Questions",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"searchTerm\": \"life\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/questions",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH Question",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"Could this possibly work?\",\n    \"answer\": \"Maybe\",\n    \"difficulty\": 3,\n    \"category\": 3\n}"
+						},
+						"url": {
+							"raw": "{{host}}/questions/30",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"questions",
+								"30"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IlF6WXpSVUkxUWtFeU9FWkZPREZHT1VZeVJFVTBPVFZGTkRaQk9UQkNSRVkyUVVVd01EWTVNUSJ9.eyJpc3MiOiJodHRwczovL25hY2xlci5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NWU3MTY2YzEyNjFiZjQwY2FkNTc5ODdlIiwiYXVkIjoidHJpdmlhLWFwaSIsImlhdCI6MTU4NDQ5MDQ3NCwiZXhwIjoxNTg0NDk3Njc0LCJhenAiOiJiblBubTZOSGJKR2c4bVpsS21nNjR5azN3VzNkMEhXMSIsInNjb3BlIjoiIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOnF1ZXN0aW9ucyIsImdldDpjYXRlZ29yaWVzIiwiZ2V0OnF1ZXN0aW9ucyIsInBhdGNoOnF1ZXN0aW9ucyIsInBvc3Q6Y2F0ZWdvcmllcyIsInBvc3Q6cXVlc3Rpb25zIl19.RT6py4Rx9i6DXDsROKRLePgIRMioQhu3ijCh788QYpvdpvxew-p_XMRfTJEUMPRRJq5lRbzEJ3KB-DS86T4J6GWt6Et8o0AFZPsKLn3NxYDByRBaswM_-5gkEWVTqrVqOO2WMDsYhw0Y0aJKRPFmTuYgmn_xAsphQiZdBykse1FdrK3axAK5VT42tOwtNkVMKXY2TAGvjaYj0y3rp4E1NBaR3IPfgC6afvCAB-EHGoCtld5rwScxUOnXBRjYlQH_q41dSnYwLjRhyoKgv_fo9ZdJ2D7S-PyM7LX5H67x-7F5quS-L03fLMTMcCuQ_QmB-Lqau9J3iTaMWSpD7C48WQ",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7b49f65d-87cb-47cd-b2ac-3b15bdcb6f60",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f4ef8467-7915-4bf2-bc53-9bbf210f0263",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1ab5add3-7a10-4fe5-ac50-58c5f552ed0c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "553189ec-055e-45b5-aa65-a340ce59251f",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "9fba84e4-e810-43b3-b81b-e08aa05b64c3",
+			"key": "host",
+			"value": "https://trivia-api-jeff.herokuapp.com",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

@@ -90,7 +90,7 @@ def create_app(test_config=None):
             abort(401)
 
         except(Exception):
-            abort(422)
+            abort(404)
 
     #  ROUTE: post a new question or search questions
     #  ----------------------------------------------------------------
@@ -144,7 +144,7 @@ def create_app(test_config=None):
             abort(401)
 
         except(Exception):
-            abort(422)
+            abort(404)
 
     #  ROUTE: delete a question using question ID
     #  ----------------------------------------------------------------
@@ -170,7 +170,7 @@ def create_app(test_config=None):
             abort(401)
 
         except(Exception):
-            abort(422)
+            abort(404)
 
     #  ROUTE: post a new question or search questions
     #  ----------------------------------------------------------------
@@ -263,7 +263,7 @@ def create_app(test_config=None):
             abort(401)
 
         except(Exception):
-            abort(422)
+            abort(404)
 
     #  ROUTE: get all the questions by category
     #  ----------------------------------------------------------------
@@ -292,7 +292,7 @@ def create_app(test_config=None):
             abort(401)
 
         except(Exception):
-            abort(422)
+            abort(404)
 
     #  ERROR: 404 error handling
     #  ----------------------------------------------------------------
