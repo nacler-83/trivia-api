@@ -46,7 +46,7 @@ App can be deployed easily on Heroku and using gunicorn. Instructions below assu
 * add remote with `git remote add heroku heroku_git_url`
 * setup postgres with `heroku addons:create heroku-postgresql:hobby-dev --app name_of_your_application`
 * get your `database_path` with `heroku config --app name_of_your_application`
-* add the patch and your Auth0 information to `setup.py`
+* add the `database_path` and your Auth0 information to `setup.py`
 * deploy with `git push heroku master`
 * make sure your environment variables from `setup.py` are defined in the project environment variables.
 * enjoy!
