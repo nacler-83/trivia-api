@@ -51,6 +51,17 @@ class TriviaTestCase(unittest.TestCase):
             "difficulty": 2,
             "category": 4
         }
+        # new category payload to be used in tests
+        self.new_category = {
+            "type": "Sportsball"
+        }
+        # new question payload to be used in tests
+        self.patch_question = {
+            "question": "This is a new patch aint it?",
+            "answer": "probably",
+            "difficulty": 3,
+            "category": 1
+        }
 
         # binds the app to the current context
         with self.app.app_context():
@@ -83,17 +94,27 @@ class TriviaTestCase(unittest.TestCase):
         self.assertEqual(data['success'], True)
         self.assertTrue(len(data['questions']))
 
+    #  test 404 on GET all questions no results
+    #  ----------------------------------------------------------------
+    def test_404_get_all_questions(self):
+        res = self.client().get('/questions?page=1000', headers=self.headers)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 404)
+        self.assertEqual(data['success'], False)
+        self.assertEqual(data['message'], 'resource not found')
+
+    #  test 422 on no auth token provided
+    #  ----------------------------------------------------------------
+    def test_401_no_auth(self):
+        res = self.client().get('/questions')
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 401)
+        self.assertEqual(data['code'], 'authorization_header_missing')
+        self.assertEqual(data['description'], 'Authorization header is expected.')
+
     if admin == True:
-
-        #  test 404 on GET all questions no results
-        #  ----------------------------------------------------------------
-        def test_404_get_all_questions(self):
-            res = self.client().get('/questions?page=1000', headers=self.headers)
-            data = json.loads(res.data)
-
-            self.assertEqual(res.status_code, 404)
-            self.assertEqual(data['success'], False)
-            self.assertEqual(data['message'], 'resource not found')
 
         #  test DELETE question by question id
         #  ----------------------------------------------------------------
@@ -138,6 +159,27 @@ class TriviaTestCase(unittest.TestCase):
             self.assertEqual(data['success'], True)
             self.assertTrue(data['total_questions'])
             self.assertTrue(data['questions'])
+
+        #  test POST new category
+        #  ----------------------------------------------------------------
+        def test_create_new_category(self):
+            res = self.client().post('/categories', json=self.new_category, headers=self.headers)
+            data = json.loads(res.data)
+
+            self.assertEqual(res.status_code, 200)
+            self.assertEqual(data['success'], True)
+            self.assertTrue(data['new_category'])
+
+         #  test PATCH question
+        #  ----------------------------------------------------------------
+        def test_patch_question(self):
+            number = 5
+            res = self.client().patch('/questions/' + str(number), json=self.patch_question, headers=self.headers)
+            data = json.loads(res.data)
+
+            self.assertEqual(res.status_code, 200)
+            self.assertEqual(data['success'], True)
+            self.assertTrue(data['question'])
 
 
 # Make the tests conveniently executable
