@@ -81,7 +81,7 @@ Users can:
 
 
 ## Postman
-Included in a postman collection you can use to hit the endpoints. Adjust the host variable in the mail `Trivia API` folder. Set your Admin and User bearer token in the `Admin` and `User` folders. Hitting endpoints that require admin permissions with a user token should return a 403.
+Included in a postman collection you can use to hit the endpoints. Adjust the host variable in the main `Trivia API` folder. Set your Admin and User bearer token in the `Admin` and `User` folders. Hitting endpoints that require admin permissions with a user token should return a 401.
 
 
 ## Endpoints
