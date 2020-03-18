@@ -48,7 +48,7 @@ App can be deployed easily on Heroku and using gunicorn. Instructions below assu
 * get your `database_path` with `heroku config --app name_of_your_application`
 * add the `database_path` and your Auth0 information to `setup.py`
 * deploy with `git push heroku master`
-* make sure your environment variables from `setup.py` are defined in the project environment variables.
+* make sure your environment variables from `setup.py` are defined in the heroku project environment variables.
 * enjoy!
 
 
